@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
         // Set up the Spinner
         spinnerToppings = (Spinner) findViewById(R.id.spinnerToppings);
 
+
+
+
     }
 
     @Override
@@ -64,18 +67,16 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     public void onClickOrder(View view) {
         // ****** For the Assignment, students need to add code here to get information from the UI widgets...
 
-        String orderDescription = "No orders yet";
-
 
         // ****** For the Practice Activity, students need to call to OrderPizza here
-        object.OrderPizza("Pepperoni", "Large", false);
+         String orderDescription = object.OrderPizza("Pepperoni", "Large", false);
 
+        txtTotal.setText("Total Bill: " + object.getTotalBill().toString());
 
-        
         // ****** For the Assignment, students will modify the order to fit the type of pizza the user selects using the UI widgets
 
         //display a pop up message for a long period of time
-        Toast.makeText(getApplicationContext(), "You have ordered a "+orderDescription , Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "You have ordered a "+ orderDescription , Toast.LENGTH_LONG).show();
         // add this pizza to the textview the lists the pizzas
         txtPizzasOrdered.append(orderDescription+"\n");
 
